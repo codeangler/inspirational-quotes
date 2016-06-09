@@ -18,8 +18,52 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
 
   </head>
-  <body ng-controller="quoteController as qCtrl">
-  {{ qCtrl.greeting.inspiration[0] }}
+
+  <body>
+  <div class="container" ng-controller="quoteController as qCtrl">
+    <div class="main">{{ qCtrl.greeting }}
+    
+        
+        
+        {{ qCtrl.author }}
+        {{ qCtrl.submitQuote }}
+        
+        <!--  Form -->
+        <form class="form-group" >
+    
+          <!--   Preview Form Submission -->
+          <blockquote>
+            
+            <h2>{{ qCtrl.submitQuote }}</h2>
+            <h6 ng-show="{{qCtrl.rating}}"> Your Rating of this quote was <b>{{qCtrl.rating }}</b> out of <b>5</b></h6>
+            <cite>{{ qCtrl.author }}</cite>
+            
+          </blockquote>
+                  
+          <h4>Submit a Quote</h4>
+          <fieldset class="form-group">
+            <select ng-model="qCtrl.rating" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+              <option value>Rate the Product</option>
+            </select>
+          </fieldset>
+          <fieldset class="form-group">
+            <textarea ng-model="qCtrl.submitQuote" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+          </fieldset>
+          <fieldset class="form-group">
+            <input ng-model="qCtrl.author" type="text" class="form-control" placeholder="Author of Quote's Name Here" title="Author" />
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+          </fieldset>
+        </form>
+    </div>
+
+
+
+  </div>
+
+  
+ 
 
   <script type="text/javascript" src="angular/app.js"></script>
   <script type="text/javascript" src="angular/app.quote-controller.js"></script>

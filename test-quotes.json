@@ -1,7 +1,4 @@
-app.factory('QuoteFactory', [quoteStorage])
-
-  function quoteStorage(){
-    var quoteObject = {
+{
   "cols": 
   [
       "Author",
@@ -37,6 +34,3 @@ app.factory('QuoteFactory', [quoteStorage])
       ]
   ]
 }
-    console.log(quoteObject)
-    return quoteObject;
-  }

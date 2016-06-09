@@ -1,8 +1,10 @@
-app.controller('quoteController', quoteCtrl);
+app.controller('quoteController', qCtrl);
 
-  quoteCtrl.$inject = ['QuoteFactory'];
+  qCtrl.$inject = ['QuoteFactory'];
 
-  function quoteCtrl(QuoteFactory) {
-    var quoteCtrl = this;
-    quoteCtrl.greeting = QuoteFactory;
+  function qCtrl(QuoteFactory) {
+    var qCtrl = this;
+    qCtrl.greeting = "HI";
+    qCtrl.eachQuote = QuoteFactory.data;
+
   }
