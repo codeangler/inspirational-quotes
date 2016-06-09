@@ -6,5 +6,6 @@ app.controller('quoteController', qCtrl);
     var qCtrl = this;
     qCtrl.greeting = "HI";
     qCtrl.eachQuote = QuoteFactory.data;
+    
 
   }
