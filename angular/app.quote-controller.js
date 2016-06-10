@@ -5,8 +5,18 @@ angular.module('quoteApp')
 
   function qCtrl(QuoteFactory) {
     var qCtrl = this;
-    qCtrl.greeting = "HI";
-    qCtrl.eachQuote = QuoteFactory.data;
-    
+    qCtrl.author = "";
+    qCtrl.aquote = "";
+    qCtrl.rating = "";
+    qCtrl.quoteBlock = QuoteFactory;
+    console.log(qCtrl.quoteBlock);
 
+    qCtrl.submitQuote = function(){
+      // qCtrl.quoteBlock.push({qCtrl.quote, qCtrl.author, qCtrl.rating})
+      qCtrl.author = "";
+      qCtrl.quote = "";
+      qCtrl.rating = "";
+      console.log(qCtrl.quoteBlock)
+
+    }
   }
