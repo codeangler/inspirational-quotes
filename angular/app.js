@@ -1,1 +1,2 @@
-var app = angular.module('quoteApp', []);
+// ==============Module File ================= \\
+angular.module('quoteApp', []);

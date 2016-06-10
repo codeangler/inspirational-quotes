@@ -1,4 +1,5 @@
-app.controller('quoteController', qCtrl);
+angular.module('quoteApp')
+.controller('quoteController', qCtrl);
 
   qCtrl.$inject = ['QuoteFactory'];
 
