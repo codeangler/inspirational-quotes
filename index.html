@@ -1,72 +1,84 @@
 <!DOCTYPE html>
 <html ng-app='quoteApp'>
-  <head>
-    <meta charset="utf-8">
-    <title>[starter html for angular]</title>
+<head>
+  <meta charset="utf-8">
+  <title>Inpirational Quotes</title>
 
-      <!-- Bootstrap Minified -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Bootstrap Minified -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-      <!-- bootstrap theme -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+   
+    <!-- Unique CSS -->
+    <link rel="stylesheet" href="css/main.css">
 
-      <!-- JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-      <!-- Angular Script -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-  </head>
+    <!-- Angular Script -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
 
-  <body>
+</head>
+
+<body>
   <div class="container" ng-controller="quoteController as qCtrl">
-    <div class="main">{{ qCtrl.greeting }}
-    
-        
-        
-        {{ qCtrl.author }}
-        {{ qCtrl.submitQuote }}
-        
-        <!--  Form -->
+    <div class="main">
+      <div class="jumbotron">Enter an Inspirational Quote</div>
+               
+        <!-- Form -->
         <form class="form-group" >
     
           <!--   Preview Form Submission -->
-          <blockquote>
+          <blockquote >
             
             <h2>{{ qCtrl.submitQuote }}</h2>
-            <h6 ng-show="qCtrl.rating"> Your Rating of this quote was <b>{{ qCtrl.rating }}</b> out of <b>5</b></h6>
-            <cite>{{ qCtrl.author }}</cite>
             
+            <footer ng-show="qCtrl.author"> <cite>{{ qCtrl.author }}</cite> <h6 ng-show="qCtrl.rating"> Your Rating of this quote was <b>{{ qCtrl.rating }}</b> out of <b>5</b></h6></footer>
           </blockquote>
                   
           <h4>Submit a Quote</h4>
+          
           <fieldset class="form-group">
-            <select ng-model="qCtrl.rating" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
-              <option value>Rate the Product</option>
-            </select>
-          </fieldset>
-          <fieldset class="form-group">
-            <textarea ng-model="qCtrl.submitQuote" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+            <textarea ng-model="qCtrl.submitQuote" class="form-control" placeholder="Share an inspirational..." title="Review"></textarea>
           </fieldset>
           <fieldset class="form-group">
             <input ng-model="qCtrl.author" type="text" class="form-control" placeholder="Author of Quote's Name Here" title="Author" />
           </fieldset>
           <fieldset class="form-group">
-            <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+            <select ng-model="qCtrl.rating" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+              <option value>How inspired are you?</option>
+            </select>
+          </fieldset>
+          <fieldset class="form-group">
+            <input type="submit" class="btn btn-primary pull-right" value="Submit Quote" />
           </fieldset>
         </form>
+
+        <div class="callout">
+          <ul class="list-unstyled">
+            <li ng-repeat="quotes in qCtrl.eachQuote"> 
+            <blockquote>
+              <q>{{ quotes[0] }}</q>
+              <cite> - {{ quotes[1] }}</cite>
+              <footer>Inspiration Rating: {{ quotes[2] }}</footer>
+            </blockquote>
+            </li>
+          </ul>
+        </div>
     </div>
 
 
 
   </div>
 
-  
- 
+
+
 
   <script type="text/javascript" src="angular/app.js"></script>
   <script type="text/javascript" src="angular/app.quote-controller.js"></script>
   <script type="text/javascript" src="angular/app.quote-factory.js"></script>
-  </body>
+</body>
 </html>
