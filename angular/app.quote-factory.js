@@ -14,22 +14,22 @@ angular.module('quoteApp')
       {
         quote: "Being ignorant is not so much a shame, as being unwilling to learn.",
         author: "Benjamin Franklin",
-        rating:"5"
+        rating:"4"
       },
       {
         quote: "I am still learning.",
         author: "Michelangelo",
-        rating:"5"
+        rating:"2"
       },
       {
         quote: "People often say that motivation doesn't last. Well, either does bathing - that's why we recommend it daily.",
         author: "Zig Ziglar",
-        rating:"5"
+        rating:"4"
       },
       {
         quote: "When you arise in the morning think of what a privilege it is to be alive, to think, to enjoy, to love",
         author: "Marcus Aurelius",
-        rating:"5"
+        rating:"1"
       }
     ]
     return quoteArray;

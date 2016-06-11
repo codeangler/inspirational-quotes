@@ -2,3 +2,7 @@ blockquote q {
   font-size: 1.6em;
   font-weight: 200;
 }
+
+ul li button {
+  margin-top: 10px;
+}

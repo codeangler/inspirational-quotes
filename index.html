@@ -59,12 +59,23 @@
 
         <div class="callout">
           <ul class="list-unstyled">
-            <li ng-repeat="quotes in qCtrl.quoteBlock | orderBy: '-'"> 
-            <blockquote>
-              <q>{{ quotes.quote }}</q>
-              <cite> - {{ quotes.author }}</cite>
-              <footer>Inspiration Rating: {{ quotes.rating }}</footer>
-            </blockquote>
+            <li ng-repeat="quotes in qCtrl.quoteBlock" class="row" ng-mouseover="qCtrl.hoverIn()" ng-mouseleave="qCtrl.hoverOut($index)"> 
+              <blockquote class="col-xs-10">
+                <q>{{ quotes.quote }}</q>
+                <cite> - {{ quotes.author }}</cite>
+                <footer>Inspiration Rating: {{ quotes.rating }}</footer>
+              </blockquote>
+              <div class="" ng-show="qCtrl.hoverEdit">
+                <button ng-click='qCtrl.deleteQuote($index)' class="col-xs-2 btn btn-xs btn-danger">Delete</button>
+                <button class="col-xs-2 btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">New Rating <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li ng-repeat="rating in [5,4,3,2,1]">
+                    <select ng-model="qCtrl.rating" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+                      <option value></option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
